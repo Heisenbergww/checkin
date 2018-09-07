@@ -74,3 +74,8 @@
 #upload-save{
     /* display: none; */
 }
+.date-add{
+    float: left;
+    width: 48%;
+    padding-left: 1%;
+}

@@ -1,111 +1,142 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>个人查询</title>
-  <link rel="stylesheet" href="../src/module/layui/css/layui.css">
-  <link rel="stylesheet" href="../src/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>姓名明细</title>
+    <link rel="stylesheet" href="../src/module/layui/css/layui.css">
+    <link rel="stylesheet" href="../src/css/main.css">
 </head>
-<body class="layui-fluid">
- 
-<!-- header -->
-    <div class="layui-header layui-row">
-        <h1 class="text-center mg-tpye1">签到情况</h1>
-        <hr class="center-line">
-    </div>
-<!-- header -->
 
-<!-- fliter -->
-    <div class="fliter layui-row"">
-        <form class="layui-form" action="">
-            <div class="layui-form-item">
-                <div class="layui-inline">
-                    <div class="layui-input-inline">
-                        <input type="text" name="date"  autocomplete="off" placeholder="from date XXX to date XXX:" class="layui-input" disabled>
-                    </div>
-                </div>
+<body class="">
 
-                <div class="layui-inline">
-                    <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="start-date" placeholder="起始日期" lay-key="1">   
-                    </div>
-                </div>
+    <div class="layui-layout layui-layout-admin">
+        <!-- header -->
+        <div class="header">
+            <ul class="layui-nav" lay-filter="">
+                <li class="layui-nav-item" id="home-page"><a href="/">签到系统</a></li>
+                <li class="layui-nav-item" id="index-page"><a href="./index.html">home</a></li>
+                <li class="layui-nav-item" id="department-page"><a href="./department.html">department</a></li>
+                <li class="layui-nav-item" id="persons-page"><a href="./persons.html">persons</a></li>
+                <li class="layui-nav-item" id="relation-page"><a href="./relation.html">relation</a></li>
+                <li class="layui-nav-item" id="dateadd-page"><a href="./dateadd.html">dateadd</a></li>
+            </ul>
+        </div>
+        <!-- header -->
 
-                <div class="layui-inline">
-                    <div class="layui-input-inline">
-                        <input type="text" class="layui-input" id="end-date" placeholder="结束日期" lay-key="2">     
-                    </div>
-                </div>
+        <!-- 左部分 -->
+        <div class="left-part layui-fluid">
+        <!-- header -->
+            <div class="layui-row">
+                <h1 class="text-center mg-tpye1">签到情况</h1>
+                <hr class="center-line">
+            </div>
+        <!-- header -->
 
-                <div class="layui-inline">
-                    <div class="layui-input-inline">
-                        <select name="department" lay-verify="">
-                            <option value="">部门</option>
-                            <option value="010">人事司</option>
-                            <option value="021">外事司</option>
-                        </select>     
-                    </div>
-                </div>
-
-                <div class="layui-inline">
-                    <div class="layui-input-inline">
-                        <input type="text" name="title" required  lay-verify="required" placeholder="请输入员工ID" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-
-                <div class="layui-inline">
-                    <div class="layui-input-inline tiny-input">
-                        <select name="overtime1" lay-verify="">
-                            <option value="0">加班时长</option>
-                            <option value="1">迟到次数</option>
-                        </select>
-                    </div>
-                    <div class="layui-input-inline smaller-input">
-                        <select name="overtime2" lay-verify="">
-                            <option value="0">></option>
-                            <option value="1">=</option>
-                            <option value="2"><</option>
-                        </select>
-                    </div>
-                    <div class="layui-input-inline small-input">
-                        <div class="layui-input-inline">
-                            <input type="text" name="times" lay-verify="" autocomplete="off" placeholder="" class="layui-input small-input">
+        <!-- fliter -->
+        <div class="fliter layui-row">
+            <form class="layui-form" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <div class="layui-input-inline in1">
+                            <input type="text" autocomplete="off" placeholder="from date XXX to date XXX:" class="layui-input" disabled>
                         </div>
                     </div>
+        
+                    <div class="layui-inline">
+                        <div class="layui-input-inline in2">
+                            <input type="text" name="begin-date" class="layui-input" id="start-date" placeholder="起始日期" lay-key="1">
+                        </div>
+                    </div>
+        
+                    <div class="layui-inline">
+                        <div class="layui-input-inline in2">
+                            <input type="text" name="end-date" class="layui-input" id="end-date" placeholder="结束日期" lay-key="2">
+                        </div>
+                    </div>
+        
+                    <div class="layui-inline">
+                        <div class="layui-input-inline in3">
+                            <select name="department-code" lay-verify="">
+                                <option value="">部门</option>
+                                <option value="010">人事部</option>
+                                <option value="021">外事司</option>
+                            </select>
+                        </div>
+                    </div>
+        
+                    <div class="layui-inline">
+                        <div class="layui-input-inline in4">
+                            <input type="text" name="id"  lay-verify="" placeholder="请输入员工ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+        
+                    <div class="layui-inline">
+                        <label class="layui-form-label label-1">加班时长</label>
+                        <div class="layui-input-inline smaller-input">
+                            <select name="mark1" lay-verify="">
+                                <option value="0">></option>
+                                <option value="1">=</option>
+                                <option value="2"><</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline small-input">
+                            <div class="layui-input-inline">
+                                <input type="text" name="times1" lay-verify="" autocomplete="off" placeholder="" class="layui-input small-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <label class="layui-form-label label-1">迟到次数</label>
+                        <div class="layui-input-inline smaller-input">
+                            <select name="mark2" lay-verify="">
+                                <option value="0">></option>
+                                <option value="1">=</option>
+                                <option value="2"><</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline small-input">
+                            <div class="layui-input-inline">
+                                <input type="text" name="times2" lay-verify="" autocomplete="off" placeholder="" class="layui-input small-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                        <button id="search" class="layui-btn" lay-submit lay-filter="formDemo">搜索</button>
+                        
+                    </div>                   
                 </div>
-
-                
-                
+            </form>
+        </div>
+        <!-- fliter -->
+        
+        <!-- chart-part -->
+            <div class="show-part ">
+                 <table id="persons-chart" lay-filter="persons"></table>
             </div>
-            
-        </form>
-    </div>  
-<!-- fliter -->
+        <!-- chart-part -->
+        
+        <!-- nav -->
+            <div class="nav-part ">
+                <!-- <button id="c " class="layui-btn layui-btn-radius layui-btn-primary ">出现</button> -->
+                <button id="export" class="layui-btn layui-btn-radius layui-btn-primary">导出数据</button>              
+            </div>
+        <!-- nav -->
+        </div>
+        
 
-<!-- chart-part -->
-    <div class="show-part">
-            <table id="persons-chart" lay-filter="persons"></table>
     </div>
-<!-- chart-part -->
-
-<!-- nav -->
-    <div class="nav-part">
-        <a class="layui-btn layui-btn-radius layui-btn-primary" href="/">查询统计结果</a>
-        <a class="layui-btn layui-btn-radius layui-btn-primary" href="/">返回上一级</a>
-        <a class="layui-btn layui-btn-radius layui-btn-primary" href="/">返回首页</a>
-        <button class="layui-btn layui-btn-radius layui-btn-primary">导出数据</button>
-    </div>
-<!-- nav -->
-    
-
- 
-
 <!-- js -->
-<script src="../src/module/layui/layui.js"></script>
-<script src="../src/module/jquery/jquery-3.3.1.min.js"></script>
-<script src="../src/js/main.js"></script>
+<script src="../src/module/layui/layui.js "></script>
+<script src="../src/module/jquery/jquery-3.3.1.min.js "></script>
+<script src="../src/js/main.js "></script>
+<script src="../src/js/VAR.js "></script>
 <!-- js -->
+
+<script src="../src/js/persons.js"></script>
 
 </body>
 </html>

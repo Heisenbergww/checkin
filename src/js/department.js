@@ -8,6 +8,7 @@ $(document).ready(function(){
         element = layui.element;//导航
 
         var tableData  
+        $('#department-page').addClass('layui-this');
                 
         //过滤
         //监听提交

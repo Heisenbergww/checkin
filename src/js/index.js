@@ -9,6 +9,8 @@ $(document).ready(function(){
 
         var tableData
 
+        $('#index-page').addClass('layui-this');
+
         //上传
         upload.render({
             elem: '#upload-text', //绑定元素
