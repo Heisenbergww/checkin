@@ -79,3 +79,18 @@
     width: 48%;
     padding-left: 1%;
 }
+#upload-text{
+    margin-right: 10px;
+}
+/* 复选框样式复写 */
+.layui-form-checkbox i {
+    height: 36px;
+}
+.layui-form-item .layui-form-checkbox {
+    margin-top: 0px;
+}
+.layui-form-checkbox {
+    height: 38px;
+    line-height: 38px;
+}
+/* 复选框样式复写 */

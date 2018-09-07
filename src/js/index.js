@@ -89,15 +89,15 @@ $(document).ready(function(){
                     { field: 'id', title: 'ID' },
                     { field: 'name', title: '姓名' },
                     { field: 'department', title: '部门' },
-                    { field: 'f1', title: '日期'},
+                    { field: 'f1', title: '日期' },
                     { field: 'f2', title: '上班时间', edit: 'text' },
                     { field: 'f3', title: '下班时间', edit: 'text' },
                     { field: 'f4', title: '工作时长', },
                     { field: 'f5', title: '加班时长', },
                     { field: 'f6', title: '迟到时间', },
-                    { field: 'f7', title: '人均加班时长排名',  },
-                    { field: 'f8', title: '休假', },
-                    { field: 'f9', title: '备注',  }
+                    { field: 'f7', title: '人均加班时长排名', },
+                    { field: 'f8', title: '休假', edit: 'text' },
+                    { field: 'f9', title: '备注', edit: 'text' }
                 ]],
                 data: tableData,
             })
