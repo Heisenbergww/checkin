@@ -1,0 +1,125 @@
+/* *{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+} */
+#schedule-box{
+    width: 320px;
+    margin: 0 auto;
+    padding: 35px 20px;
+    font-size: 13px;
+}
+.schedule-hd{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.today{
+    flex: 1;
+    text-align: center;
+}
+.ul-box{
+    overflow: hidden;
+}
+.ul-box > li{
+    float: left;
+    width: 14.28%;
+    text-align: center;
+    padding: 5px 0;
+}
+.other-month{
+    color: #999999;
+}
+.current-month{
+    color: #333333;
+}
+.today-style{
+    border-radius: 50%;
+    background: #58d321;
+}
+.arrow{
+    cursor: pointer;
+}
+.dayStyle{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+.current-month > .dayStyle:hover{
+    background: #9E9E9E;
+    color: #ffffff;
+}
+.today-flag{
+    /* background: #F44336;
+    color: #fff; */
+}
+.boxshaw{
+    box-shadow: 2px 2px 15px 2px #e3e3e3;
+}
+.selected-style {
+    background: #00BDFF;
+    color: #ffffff;
+}
+#h3Ele{
+    text-align: center;
+    padding: 10px;
+    display: none;
+}
+#schedule-box{
+    float:left;
+}
+#chose-part{
+    float: left;
+    /* margin-right: 70px; */
+}
+.show-part{
+    float: left;
+    margin-left: 25px;
+    margin-top: -10px;
+    text-align: left;
+    width: 420px;
+}
+#unwork-check,
+#work-check{
+    margin-left: 60px;
+}
+#twodate-chart1{
+    width: 180px;
+}
+#twodate-chart2{
+    width: 180px;
+}
+#date-history{
+    width: 280px;
+}
+.date-add-part{
+    width: 1020px;
+    margin: 0 auto;
+}
+#update-date {
+    margin-left: 75px;
+}
+.circle-point1 {
+    width: 24px;
+    height: 24px;
+    background-color: rgb(76, 175, 80);
+    float: left;
+    border-radius: 35px;
+    margin-top: 6px;
+    margin-left: 26px;
+}
+.circle-point2 {
+    width: 24px;
+    height: 24px;
+    background-color: rgb(0, 189, 255);
+    float: left;
+    border-radius: 35px;
+    margin-top: 6px;
+    margin-left: 26px;
+}

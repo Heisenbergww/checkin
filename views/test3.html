@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        /* 此样式仅用于浏览器页面效果，Excel不会分离表格边框，不需要此样式 */
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 设置border="1"以显示表格框线 -->
+    <table border="1" id="excel-html">
+        <!-- caption元素可以生成表标题，其单元格列跨度为表格的列数 -->
+        <caption id="excel-caption">2018年9月考勤情况表</caption>
+        <tr>
+            <!-- 可以使用rowspan和colspan来合并单元格 -->
+            <td>序号</td>
+            <td>姓名</td>
+            <td>所在单位</td>
+            <td>原始晚打卡记录（次）</td>
+            <td>认定迟到（次）</td>
+            <td>原始提前离岗记录(次）</td>
+            <td>认定早退（次）</td>
+            <td>旷工（天）</td>
+            <td>病事假（天）</td>
+            <td>年休假（天）</td>
+            <td>应在班时间（小时）</td>
+            <td>实际在班时间（小时）</td>
+            <td>实际在班超出时间（小时）</td>
+            <td>室人均在班超出时间（小时）</td>
+            <td>工作日在班超出时间（小时）</td>
+            <td>公休日在班超出时间（小时）</td>
+            <td>加班排名</td>
+            <td>早晨没打卡（次）</td>
+            <td>下班没打卡（次）</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2016001</td>
+            <td>张三</td>
+            <td>男</td>
+            <td>13</td>
+            <td>1</td>
+            <td>2016001</td>
+            <td>张三</td>
+            <td>男</td>
+            <td>13</td>
+            <td>1</td>
+            <td>2016001</td>
+            <td>张三</td>
+            <td>男</td>
+            <td>13</td>
+            <td>1</td>
+            <td>2016001</td>
+            <td>张三</td>
+            <td>男</td>
+        </tr>
+    </table>
+
+    <a>导出表格</a>
+
+<script src="../src/module/layui/layui.js "></script>
+<script src="../src/module/jquery/jquery-3.3.1.min.js "></script>
+<script src="../src/js/main.js "></script>
+<script src="../src/js/VAR.js "></script>
+<!-- js -->
+
+<script src="../src/js/persons.js"></script>
+<script src="../src/js/excelExport.js"></script>
+<script src="../src/js/test4.js"></script>
+
+</body>
+
+</html>

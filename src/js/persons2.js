@@ -68,18 +68,17 @@ $(document).ready(function(){
                     })
 
 
-                    // $('#export').on('click', function () {
-                    //     //将上述表格示例导出为 xls文件
-                    //     // console.log(ins1.config.id)
-                    //     table.exportFile(ins1.config.id, ins1.config.data,'xls'); //data 为该实例中的任意数量的数据
-                    // })
-                    downloadExcel(tableData,ins1.config.title)
+                    $('#export').on('click', function () {
+                        
+                    })
                 }
             });
 
             
             return false;
         });
+
+        //重绘表格dom
 
         
 

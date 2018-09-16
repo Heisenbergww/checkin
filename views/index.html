@@ -7,6 +7,7 @@
     <title>签到</title>
     <link rel="stylesheet" href="../src/module/layui/css/layui.css">
     <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="stylesheet" href="../src/module/webuploader/webuploader.css">
 </head>
 
 <body class="">
@@ -19,8 +20,16 @@
                 <li class="layui-nav-item" id="index-page"><a href="./index.html">home</a></li>
                 <li class="layui-nav-item" id="department-page"><a href="./department.html">department</a></li>
                 <li class="layui-nav-item" id="persons-page"><a href="./persons.html">persons</a></li>
-                <li class="layui-nav-item" id="relation-page"><a href="./relation.html">relation</a></li>
-                <li class="layui-nav-item" id="dateadd-page"><a href="./dateadd.html">dateadd</a></li>
+                <!-- <li class="layui-nav-item" id="relation-page"><a href="./relation.html">relation</a></li> -->
+                <li class="layui-nav-item">
+                    <a href="javascript:;">management</a>
+                    <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                      <dd><a href="./relation.html">relation</a></dd>
+                      <dd><a href="./departmentmanage.html">department manage</a></dd>
+                      <dd><a href="./dateadd.html">dateadd</a></dd>
+                    </dl>
+                  </li>
+                <!-- <li class="layui-nav-item" id="dateadd-page"><a href="./dateadd.html">dateadd</a></li> -->
             </ul>
         </div>
         <!-- header -->
@@ -58,7 +67,7 @@
         
                     <div class="layui-inline">
                         <div class="layui-input-inline in3">
-                            <select name="department-code" lay-verify="">
+                            <select name="department-code" id="ajax-dep" lay-verify="">
                                 <option value="">部门</option>
                                 <option value="010">人事部</option>
                                 <option value="021">外事司</option>
@@ -129,13 +138,15 @@
         <!-- nav -->
             <div class="nav-part ">
                 <!-- <button id="c " class="layui-btn layui-btn-radius layui-btn-primary ">出现</button> -->
-                <button id="upload-text" class="layui-btn layui-btn-radius layui-btn-primary">导入数据</button>
+                <button id="upload-text" class="layui-btn layui-btn-radius layui-btn-primary">选择导入数据</button>
+                <button id="upload-begin" class="layui-btn layui-btn-radius layui-btn-primary">开始上传</button>
                 <button id="upload-edit" class="layui-btn layui-btn-radius layui-btn-primary">编辑</button>
                 <button id="upload-save" class="layui-btn layui-btn-radius layui-btn-primary">保存</button>
                 <!-- <a class="layui-btn layui-btn-radius layui-btn-primary " href="./department.html ">部门查询</a> -->
                 <!-- <a class="layui-btn layui-btn-radius layui-btn-primary " href="./persons.html ">个人查询</a> -->
             </div>
         <!-- nav -->
+            <div id="upload-show-part"></div>
         </div>
         
 
@@ -143,11 +154,13 @@
 <!-- js -->
 <script src="../src/module/layui/layui.js "></script>
 <script src="../src/module/jquery/jquery-3.3.1.min.js "></script>
+<script src="../src/module/webuploader/webuploader.min.js"></script>
 <script src="../src/js/main.js "></script>
 <script src="../src/js/VAR.js "></script>
 <!-- js -->
 
 <script src="../src/js/index.js"></script>
+<script src="../src/js/deplist.js"></script><!-- 引用部门列表-->
 
 </body>
 </html>

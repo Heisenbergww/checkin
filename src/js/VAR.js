@@ -329,8 +329,7 @@ var TEST_DATA1 = [
         "field17": "4",
         "field18": "0",
         "field19": "",
-        "field20": "",
-        "field21": ""
+        "field20": ""
     },
     {
         "field1": "外事司",
@@ -352,15 +351,14 @@ var TEST_DATA1 = [
         "field17": "12",
         "field18": "1",
         "field19": "",
-        "field20": "",
-        "field21": ""
+        "field20": ""
     }
 ]
 
-var TEST_DATA2 = [
+var TEST_DATA23 = 
     {
         "f1":"1",
-        "f2":"<a href='https://www.baidu.com/s?ie=UTF-8&wd=datagrid'>张三</a>",
+        "f2":"张三",
         "f3":"人事司",
         "f4":"",
         "f5":"",
@@ -378,26 +376,77 @@ var TEST_DATA2 = [
         "f17":"4",
         "f18":"2",
         "f19":"0",
+    }
+    // ,
+    // {
+    //     "f1":"2",
+    //     "f2":"李四",
+    //     "f3":"工贸司",
+    //     "f4":"",
+    //     "f5":"",
+    //     "f6":"",
+    //     "f7":"",
+    //     "f8":"",
+    //     "f9":"",
+    //     "f10":"",
+    //     "f11":"302.5",
+    //     "f12":"480",
+    //     "f13":"100",
+    //     "f14":"",
+    //     "f15":"80",    
+    //     "f16":"",
+    //     "f17":"2",
+    //     "f18":"7",
+    //     "f19":"0",
+    // }
+
+var TEST_DATA2 = []
+for(var i=0;i<90;i++){
+    TEST_DATA2.push(TEST_DATA23)
+}
+// console.log(TEST_DATA2)
+
+var TEST_DATA4 = [
+    {
+        'department':'人事部',
+        'departmentCode':'1',
+        'id':'1',
+        'name':'小王'
     },
     {
-        "f1":"2",
-        "f2":"李四",
-        "f3":"工贸司",
-        "f4":"",
-        "f5":"",
-        "f6":"",
-        "f7":"",
-        "f8":"",
-        "f9":"",
-        "f10":"",
-        "f11":"302.5",
-        "f12":"480",
-        "f13":"100",
-        "f14":"",
-        "f15":"80",    
-        "f16":"",
-        "f17":"2",
-        "f18":"7",
-        "f19":"0",
-    }
+        'department':'人事部',
+        'departmentCode':'1',
+        'id':'2',
+        'name':'小赵'
+    },
+    {
+        'department':'人事部',
+        'departmentCode':'1',
+        'id':'3',
+        'name':'法兰克福'
+    },
+]
+
+var TEST_DATA5 = [
+    {
+        'department':'人事部',
+        'departmentCode':'1',
+        'departmentmembers':'20'
+    },
+    {
+        'department':'事业部',
+        'departmentCode':'3',
+        'departmentmembers':'5'
+    },
+    {
+        'department':'后勤部',
+        'departmentCode':'2',
+        'departmentmembers':'46'
+    },
+    {
+        'department':'宣传部',
+        'departmentCode':'9',
+        'departmentmembers':'34'
+    },
+
 ]

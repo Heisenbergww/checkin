@@ -7,107 +7,11 @@ $(document).ready(function(){
         upload = layui.upload;//上传
         element = layui.element;//导航
 
-        var tableData = []  
+        var tableData = [] 
 
-        $('#index-page').addClass('layui-this');
-
-        //上传组件设置
-        var state = 'pending',
-        $list = $('#upload-show-part'),
-        $btn = $('#upload-begin');
-        var uploader = WebUploader.create({
-
-            // swf文件路径
-            swf: '/src/module/webuploader/uploader.swf',
-        
-            // 文件接收服务端。
-            server: '/',
-        
-            // 选择文件的按钮。可选。
-            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-            pick: '#upload-text',
-        
-            // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-            resize: false
-        });
-        // 当有文件添加进来的时候
-        uploader.on('fileQueued', function (file) {
-            $list.append('<div id="' + file.id + '" class="item">' +
-                '<h4 class="info">' + file.name + '</h4>' +
-                '<p class="state">等待上传...</p>' +
-                '</div>');
-            $list.css({
-                'display':"block"
-            })
-        });
-
-        // 文件上传过程中创建进度条实时显示。
-        uploader.on('uploadProgress', function (file, percentage) {
-            var $li = $('#' + file.id),
-                $percent = $li.find('.progress .progress-bar');
-
-            // 避免重复创建
-            if (!$percent.length) {
-                $percent = $('<div class="progress progress-striped active">' +
-                    '<div class="progress-bar" role="progressbar" style="width: 0%">' +
-                    '</div>' +
-                    '</div>').appendTo($li).find('.progress-bar');
-            }
-
-            $li.find('p.state').text('上传中');
-
-            $percent.css('width', percentage * 100 + '%');
-        });
-
-
-        var finalFileData = []
-        uploader.on('uploadSuccess', function (file,response ) {
-            $('#' + file.id).find('p.state').text('已上传');
-            finalFileData=respose.res          
-        });
-
-        uploader.on('uploadError', function (file) {
-            $('#' + file.id).find('p.state').text('上传出错');
-        });
-
-        uploader.on('uploadComplete', function (file) {
-            $('#' + file.id).find('.progress').fadeOut();
-            afterupload(finalFileData);
-            // $list.css({
-            //     'display':"none"
-            // })
-
-        });
-
-        uploader.on('all', function (type) {
-            if (type === 'startUpload') {
-                state = 'uploading';
-            } else if (type === 'stopUpload') {
-                state = 'paused';
-            } else if (type === 'uploadFinished') {
-                state = 'done';
-            }
-
-            if (state === 'uploading') {
-                $btn.text('暂停上传');
-            } else {
-                $btn.text('开始上传');
-            }
-        });
-
-        $btn.on('click', function () {
-            if (state === 'uploading') {
-                uploader.stop();
-            } else {
-                uploader.upload();
-            }
-        });
-        //上传结束
-
-        //上传后的渲染函数
-        function afterupload(res){
+        function tableDataRend(list) {
             tableData = []
-            for (let line of res) {
+            for (let line of list) {
                 var obj = {
                     "id": 0,
                     "name": 0,
@@ -122,24 +26,41 @@ $(document).ready(function(){
                     "f8": 0,
                     "f9": 0
                 }
-                obj.id = line.User_ID
-                obj.name = line.User_Name
-                obj.department = line.Affiliation_name
-                obj.f1 = getMyDate(line.date)
-                obj.f2 = getMyDate(line.WorkTime)
-                obj.f3 = getMyDate(line.OffworkTime)
-                obj.f4 = getMyDate(line.Length_Of_TotalTime)
-                obj.f5 = getMyDate(line.Lenght_Of_Workday_overtime)
+                obj.id = line.user_ID
+                obj.name = line.user_Name
+                obj.department = line.affiliation_name
+                obj.f1 = moment(line.date).format('YYYY-MM-DD')
+                obj.f2 = line.workTime == null ? '' : moment(line.workTime).format('HH:mm:ss')
+                obj.f3 = line.offworkTime == null ? '' : moment(line.offworkTime).format('HH:mm:ss')
+                obj.f4 = line.length_Of_TotalTime
+                obj.f5 = line.lenght_Of_TotalOvertime
                 obj.f6 = 0
                 obj.f7 = 0
                 obj.f8 = ''
                 obj.f9 = ''
                 tableData.push(obj)
             }
-            beginView();
         }
-        
 
+        $('#index-page').addClass('layui-this');
+
+        //上传
+        upload.render({
+            elem: '#upload-text', //绑定元素
+            url: 'attendance/informations/uploadfile',//上传接口
+            accept: 'file',
+            done: function (res) {
+                //上传完毕回调
+                layer.msg('上传成功');
+                tableDataRend(res);                    
+                beginView();
+            },
+            error: function () {
+                //请求异常回调
+                layer.msg('上传失败');
+            }
+        }); 
+        
         function beginView(){
             //数据处理
             // tableData = TEST_DATA3;
@@ -181,7 +102,7 @@ $(document).ready(function(){
         
 
         //编辑表格
-        // $('#upload-edit').on('click',function(){
+        $('#upload-edit').on('click',function(){
             console.log('编辑'+tableData)
             table.render({
                 elem: '#look-chart',
@@ -212,7 +133,7 @@ $(document).ready(function(){
                 ]],
                 data: tableData,
             })
-        // })
+        })
         //监听
         var modifyListIndex = [];
         var modifyList = [];
@@ -249,8 +170,7 @@ $(document).ready(function(){
                 data: JSON.stringify(modifyList),
                 // data: modifyList,
                 success: function(res){
-                    console.log(res)
-                    tableData = res.data;
+                    tableDataRend(res)
                     table.render({
                         elem: '#look-chart',
                         height: 512,
@@ -292,11 +212,10 @@ $(document).ready(function(){
             // layer.msg(JSON.stringify(data.field));
             $.ajax({
                 type: 'GET',
-                url: '/src/js/var.json',
+                url: '',
                 data: filterData,
                 success: function(res){
-                    tableData = res.data;
-                    console.log(res)
+                    tableDataRend(res)
                     table.render({
                         elem: '#look-chart',
                         height: 512,
@@ -324,7 +243,7 @@ $(document).ready(function(){
                             { field: 'f8', title: '休假', },
                             { field: 'f9', title: '备注',  }
                         ]],
-                        data: res.data,
+                        data: tableData,
                     })
                 }
             });

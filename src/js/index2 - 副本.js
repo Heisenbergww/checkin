@@ -142,7 +142,7 @@ $(document).ready(function(){
 
         function beginView(){
             //数据处理
-            // tableData = TEST_DATA3;
+            tableData = TEST_DATA3;
             //按钮显示
             // $('#upload-edit').css('display',"inline-block");
             // $('#upload-save').css('display',"inline-block");
